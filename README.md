@@ -3,5 +3,5 @@ Software for preprocessing images such as bounding box and classification for ma
 ![Templator Icon](./static//Templator.png)
 
 <div>
-  <img style='border-radius:20px;' src='.static/Templator.png'/>
+  <img style='border-radius:20px;' src='./static/Templator.png'/>
 </div>
