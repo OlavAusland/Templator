@@ -103,12 +103,12 @@ class TemplateWindow(QWidget):
         self.splitter = QSplitter(Qt.Horizontal)
 
         self.side_frame = QFrame(self)
-        self.side_frame.setStyleSheet(read_qss('./style/template.qss'))
+        self.side_frame.setStyleSheet(read_qss('./style/default.qss'))
         self.side_menu = QGridLayout(self.side_frame)
         self.side_menu.setAlignment(Qt.AlignTop)
 
         self.main_frame = QFrame(self)
-        self.main_frame.setStyleSheet('QFrame{background-color:rgb(195, 130, 127);}')
+        self.main_frame.setStyleSheet('QFrame{background-color:#ec625f;}')
         self.main_menu = QVBoxLayout(self.main_frame)
         self.main_menu.setContentsMargins(0, 0, 0, 0)
         self.main_menu.setSpacing(0)
@@ -211,11 +211,17 @@ class BoundingBoxWindow(QWidget):
         self.container.setContentsMargins(0, 0, 0, 0)
         self.container.setSpacing(0)
 
-        # side frame
+        # left side frame
         self.side_frame = QFrame(self)
         self.side_frame.setStyleSheet(read_qss('./style/default.qss'))
         self.side_menu = QGridLayout(self.side_frame)
         self.side_menu.setAlignment(Qt.AlignTop)
+
+        # right side frame
+        self.tool_frame = QFrame(self)
+        self.tool_frame.setStyleSheet(read_qss('./style/default.qss'))
+        self.tool_menu = QGridLayout(self.side_frame)
+        self.tool_menu.setAlignment(Qt.AlignTop)
 
         # main frame
         self.main_frame = QFrame(self)
@@ -223,14 +229,14 @@ class BoundingBoxWindow(QWidget):
         # main menu
         self.preview = QLabel(self.main_frame)
         self.preview.setAlignment(Qt.AlignTop)
-        self.preview.setStyleSheet('QFrame{background-color:rgb(195, 130, 127);}')
+        self.preview.setStyleSheet('QFrame{background-color:#ec625f;}')
 
         self.preview.setMouseTracking(True)
         self.preview.mouseMoveEvent = self.set_mouse_position
         self.preview.mousePressEvent = self.set_start_position
         # self.preview.mouseReleaseEvent = self.set_end_position
 
-        # side menu
+        # left side menu
         self.file_text = QLabel('Video File:')
         self.file = QPushButton('undefined')
         self.file.clicked.connect(self.select_file)
@@ -276,8 +282,9 @@ class BoundingBoxWindow(QWidget):
 
         self.splitter.addWidget(self.side_frame)
         self.splitter.addWidget(self.preview)
+        self.splitter.addWidget(self.tool_frame)
         self.splitter.setStretchFactor(1, 1)
-        self.splitter.setSizes([150, 150])
+        self.splitter.setSizes([150, 150, 150])
 
         self.container.addWidget(self.splitter)
         self.show()
@@ -454,7 +461,7 @@ class RecordWindow(QWidget):
         self.side_menu.setAlignment(Qt.AlignTop)
 
         self.main_frame = QFrame(self)
-        self.main_frame.setStyleSheet('QFrame{background-color:rgb(195, 130, 127);}')
+        self.main_frame.setStyleSheet('QFrame{background-color:#ec625f;}')
         self.main_menu = QVBoxLayout(self.main_frame)
         self.main_menu.setContentsMargins(0, 0, 0, 0)
         self.main_menu.setSpacing(0)
